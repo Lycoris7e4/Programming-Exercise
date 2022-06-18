@@ -9,13 +9,13 @@ struct cows
 }cow[55];
 const string inf = "Infinity";
 
-int jdg(int i) //讨论第i头牛
+int jdg(int i) // ith Cow
 {
 	int ans = 1000000000;
 	for (int j = 0; j < n; j++)
 	{
 		if (i == j || cow[i].d == cow[j].d) continue;
-		if (cow[i].d == 'E') //朝向东
+		if (cow[i].d == 'E') // East
 		{
 			if (cow[j].x < cow[i].x || cow[j].y > cow[i].y) continue;
 			if (cow[j].x - cow[i].x > cow[i].y - cow[j].y && jdg(j) > cow[i].y - cow[j].y)
@@ -23,7 +23,7 @@ int jdg(int i) //讨论第i头牛
 				ans = min(cow[j].x - cow[i].x, ans);
 			}
 		}
-		else if (cow[i].d == 'N') //朝向北
+		else if (cow[i].d == 'N') // North
 		{
 			if (cow[j].x > cow[i].x || cow[j].y < cow[i].y) continue;
 			if (cow[j].y - cow[i].y > cow[i].x - cow[j].x && jdg(j) > cow[i].x - cow[j].x)
@@ -42,7 +42,7 @@ int main()
 	{
 		cin >> cow[i].d >> cow[i].x >> cow[i].y;
 	}
-	for (int i = 0; i < n; i++) //讨论第i头牛
+	for (int i = 0; i < n; i++) // ith Cow
 	{
 		if (jdg(i) == 1000000000) cout << inf << endl;
 		else cout << jdg(i) << endl;
