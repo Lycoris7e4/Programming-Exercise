@@ -4,7 +4,7 @@ using namespace std;
 int n, flower[105];
 int ans = 0;
 
-bool jdg(int a, int b) //有平均返回真，无则返回假
+bool jdg(int a, int b)
 {
 	double sum = 0;
 	for (int i = a; i <= b; i++)
